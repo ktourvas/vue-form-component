@@ -2,11 +2,13 @@
 
     import FormData from './Form';
 
+    import DataSet from '../../../ux-data/src/DataSet';
+
     export default {
 
         components: {},
 
-        props: [ 'action', 'items', 'passthrough' ],
+        props: [ 'slug', 'action', 'items', 'passthrough' ],
 
         /**
          * The form data variable is being initialized with the items and passthrough props being passed to it.
@@ -15,12 +17,19 @@
          */
         data() {
             return {
+
                 success: false,
+
                 form: new FormData(
                     this.items,
                     this.passthrough
                 ),
+                dataset: null
             }
+        },
+
+        created() {
+            this.dataset = new DataSet(this.$root.$data.forms[this.slug]);
         },
 
         methods: {
@@ -39,19 +48,28 @@
              *
              */
             onSubmit() {
-                this.form.post(this.action)
-                    .then(response => {
-                        this.$emit('success', response);
-                        this.success = true;
 
-                        setInterval(() => {
-                            this.success = false;
-                        }, 5000);
+                // console.log(
+                this.dataset.validate();
+                if(!this.dataset.errors.any()) {
 
-                    })
-                    .catch(error => {
-                        this.$emit('failure', error);
-                    });
+                    this.form.post(this.action)
+                        .then(response => {
+                            this.$emit('success', response);
+                            this.success = true;
+
+                            setInterval(() => {
+                                this.success = false;
+                            }, 5000);
+
+                        })
+                        .catch(error => {
+                            this.$emit('failure', error);
+                        });
+
+                }
+                // );
+
             },
         }
 
