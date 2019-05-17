@@ -2,7 +2,7 @@
 
     import FormData from './Form';
 
-    import DataSet from '../../../ux-data/src/DataSet';
+    import DataSet from '../../../vue-form/src/DataSet';
 
     export default {
 
