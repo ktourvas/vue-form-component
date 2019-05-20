@@ -1,16 +1,25 @@
 {
-  "name": "vue-form",
+  "name": "vue-form-component",
   "version": "1.0.0",
-  "description": "Simple form functionality wrapper",
+  "description": "Simple Vue form component with validation options",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Kostas Tourvas <k.tourvas@gmail.com>",
-  "license": "ISC",
   "dependencies": {
     "form-data-manager": "^1.0.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktourvas/vue-form.git"
+  },
+  "author": "k.tourvas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ktourvas/vue-form/issues"
+  },
+  "homepage": "https://github.com/ktourvas/vue-form#readme"
 }
