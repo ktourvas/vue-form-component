@@ -1,14 +1,12 @@
 <script>
 
-    import FormData from './Form';
-
-    import DataSet from '../../../vue-form/src/DataSet';
+    import { DataSet } from 'form-data-manager';
 
     export default {
 
         components: {},
 
-        props: [ 'slug', 'action', 'items', 'passthrough' ],
+        props: [ 'slug', 'method', 'action' ],
 
         /**
          * The form data variable is being initialized with the items and passthrough props being passed to it.
@@ -20,10 +18,6 @@
 
                 success: false,
 
-                form: new FormData(
-                    this.items,
-                    this.passthrough
-                ),
                 dataset: null
             }
         },
@@ -49,11 +43,11 @@
              */
             onSubmit() {
 
-                // console.log(
                 this.dataset.validate();
+
                 if(!this.dataset.errors.any()) {
 
-                    this.form.post(this.action)
+                    this.dataset[this.method](this.action)
                         .then(response => {
                             this.$emit('success', response);
                             this.success = true;
@@ -68,7 +62,6 @@
                         });
 
                 }
-                // );
 
             },
         }

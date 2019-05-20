@@ -9,9 +9,8 @@
   "author": "Kostas Tourvas <k.tourvas@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18",
-    "es6-promise": "^4.2.6",
-    "vue": "^2.5.17",
+    "form-data-manager": "^1.0.0",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   }
 }
