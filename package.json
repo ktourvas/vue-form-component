@@ -4,7 +4,7 @@
   "description": "Simple Vue form component with validation options",
   "main": "src/index.js",
   "dependencies": {
-    "form-data-manager": "^1.0.3",
+    "form-data-manager": "^1.0.4",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
