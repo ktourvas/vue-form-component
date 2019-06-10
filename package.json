@@ -1,6 +1,6 @@
 {
   "name": "vue-form-component",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple Vue form component with validation options",
   "main": "src/index.js",
   "dependencies": {
