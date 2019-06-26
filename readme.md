@@ -2,7 +2,7 @@
 
 A simple vue component that can wrap forms with validation and submit functionality. 
 
-##installation 
+## installation 
 
 Using npm:
 
@@ -10,7 +10,7 @@ Using npm:
 $ npm i -save-dev vue-form-component
 ```
 
-##usage
+## usage
 
 ### set up
 
@@ -130,7 +130,7 @@ let vm = new Vue({
 });
 ``` 
 
-###form validation
+### form validation
 vue-form-component will handle validation of fields found in a form, by order of the rules assigned to it. 
 Available rules can be imported by the component's validators directory.
 
@@ -164,7 +164,7 @@ In the example above
 * a span will be visible under the same condition, with it's text set to the dataset's specific error
 
 
-###form submission
+### form submission
 the form submission is handled by the component which will submit a request with all the form data to the url set by the component's action property and with the method set by the component's method property. 
 
 ```html
@@ -176,7 +176,7 @@ the form submission is handled by the component which will submit a request with
 ```
 in the example above a post request will be sent to /the/form/action 
 
-###submission success/failure
+### response 
 the component will emit a success or failure event depending on the outcome of the submission request. Both events contain the relevant server response so that further handling can be implemented. The two event handlers have to simply be set on the component.
 
 ```html
