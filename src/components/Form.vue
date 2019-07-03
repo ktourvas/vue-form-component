@@ -1,3 +1,9 @@
+<template>
+    <div>
+        <slot></slot>
+    </div>
+</template>
+
 <script>
 
     import { DataSet } from 'form-data-manager';
@@ -23,7 +29,15 @@
         },
 
         created() {
-            this.dataset = new DataSet(this.$root.$data.forms[this.slug]);
+            let set = {};
+            if( this.$parent.$data.hasOwnProperty('forms') && this.$parent.$data.forms.hasOwnProperty(this.slug) ) {
+                set = this.$parent.$data.forms[this.slug];
+            } else {
+                if( this.$root.$data.hasOwnProperty('forms') && this.$root.$data.forms.hasOwnProperty(this.slug) ) {
+                    set = this.$root.$data.forms[this.slug];
+                }
+            }
+            this.dataset = new DataSet(set);
         },
 
         methods: {
