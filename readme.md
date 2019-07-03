@@ -66,8 +66,7 @@ let vm = new Vue({
 ```
 use custom component in your html:
 ```html
-<vue-form inline-template
-          method="post"
+<vue-form method="post"
           action="/the/form/action"
           slug="formslug"
           v-on:success="onSuccess"
@@ -100,7 +99,7 @@ use custom component in your html:
 ```
 
 the form component uses the form-data-manager package, in order to handle form validation and submission. 
-Upon initialization, it will look for a set of rules at the root vue component using it's slug property as reference.
+Upon initialization, it will look for a set of rules at it's parent component following a look at the root vue component using it's slug property as reference.
 
 ```html
 <vue-form inline-template
@@ -109,7 +108,7 @@ Upon initialization, it will look for a set of rules at the root vue component u
           ...
           >
 ```
-means the component will be looking for the root component this.$root.$data.forms.formslug as below 
+means the component will be looking for the parent component data property this.$root.$data.forms.formslug or for root component this.$root.$data.forms.formslug property as below 
 
 ```js
 let vm = new Vue({
@@ -168,8 +167,7 @@ In the example above
 the form submission is handled by the component which will submit a request with all the form data to the url set by the component's action property and with the method set by the component's method property. 
 
 ```html
-<vue-form inline-template
-          method="post"
+<vue-form method="post"
           action="/the/form/action"
           //...
           >
@@ -180,8 +178,7 @@ in the example above a post request will be sent to /the/form/action
 the component will emit a success or failure event depending on the outcome of the submission request. Both events contain the relevant server response so that further handling can be implemented. The two event handlers have to simply be set on the component.
 
 ```html
-<vue-form inline-template
-          // ...
+<vue-form // ...
           v-on:success="onSuccess"
           v-on:failure="onFailure"
           >
