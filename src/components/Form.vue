@@ -1,6 +1,6 @@
 <template>
     <div>
-        <slot></slot>
+        <slot v-bind:dataset="dataset" v-bind:onSubmit="onSubmit"></slot>
     </div>
 </template>
 
